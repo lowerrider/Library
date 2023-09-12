@@ -1,0 +1,23 @@
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.buttonLoad {
+  width: 150px;
+  height: 40px;
+}
+
+.fondResults {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 0px;
+}

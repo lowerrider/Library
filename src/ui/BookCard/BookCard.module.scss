@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+}
+
+.bookImage {
+  display: block;
+  margin: 60px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+}
+
+.leftContainer {
+  width: 50%;
+  background-color: rgba(117, 116, 115, 0.158);
+}
+
+.rightContainer {
+  width: 50%;
+  padding: 60px 160px 0 60px;
+  position: relative;
+}
+
+.discription {
+  width: 1000px;
+  border-width: 1;
+  border-color: rgb(190, 190, 190);
+  border-style: solid;
+}
+
+.buttonClose {
+  position: absolute;
+  right: 0;
+}

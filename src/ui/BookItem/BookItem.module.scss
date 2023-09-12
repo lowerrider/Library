@@ -1,0 +1,22 @@
+.card {
+  padding: 30px 15px 30px 15px;
+  margin: 20px;
+  width: 234px;
+  min-height: 350px;
+  background-color: rgba(117, 116, 115, 0.158);
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.imageCard {
+  display: block;
+  margin: 0 auto 0 auto;
+  border: 15px;
+  width: 130px;
+  height: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  cursor: pointer;
+}

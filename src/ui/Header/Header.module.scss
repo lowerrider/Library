@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(https://i.artfile.ru/1920x1080_1510417_[www.ArtFile.ru].jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 250px;
+}
+
+.category {
+  margin: 0 10px 0 10px;
+}
+
+.sort {
+  margin: 0 10px 0 10px;
+}
+
+.heading {
+}
+
+.selects {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 800px;
+  margin-bottom: 35px;
+}
