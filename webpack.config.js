@@ -1,16 +1,22 @@
-const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
-const production = process.env.NODE_ENV === "production";
 
 module.exports = {
-  entry: { myAppName: path.resolve(__dirname, "./src/index.js") },
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: production ? "[name].[contenthash].js" : "[name].js",
+    filename: "main.js",
+    path: path.resolve(__dirname, "build"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "public", "index.html"),
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "build"),
+    },
+    port: 3000,
   },
   module: {
     rules: [
@@ -20,45 +26,21 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.s(a|c)ss$/,
-        exclude: /node_modules/,
-        use: [
-          production ? MiniCssExtractPlugin.loader : "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: !production,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: !production,
-            },
-          },
-        ],
+        test: /\.(sa|sc|c)ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.svg$/,
+        use: ["svg-loader"],
+      },
+      {
+        test: /\.(eot|woff|woff2|svg|ttf|jpg)([\?]?.*)$/,
+        type: "asset/resource",
+        dependency: { not: ["url"] },
       },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx", ".scss"],
+    extensions: ["*", ".js", ".jsx"],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      title: "Webpack & React",
-      template: "./src/index.html",
-      favicon: "./public/favicon.ico",
-    }),
-    new MiniCssExtractPlugin({
-      filename: production ? "[name].[contenthash].css" : "[name].css",
-    }),
-  ],
-  devServer: {
-    port: 3001,
-    hot: true,
-  },
-  mode: production ? "production" : "development",
 };
