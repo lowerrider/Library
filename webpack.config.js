@@ -34,9 +34,10 @@ module.exports = {
         use: ["svg-loader"],
       },
       {
-        test: /\.(eot|woff|woff2|svg|ttf|jpg)([\?]?.*)$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
-        dependency: { not: ["url"] },
+        parser: { dataUrlCondition: { maxSize: 3000 } },
+        use: ["file-loader"],
       },
     ],
   },
