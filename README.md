@@ -11,6 +11,7 @@ ____
 + Redux toolkit
 + SASS
 + RESTful API
++ AXIOS
 + Ant Design
 + Webpack
 ____
